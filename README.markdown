@@ -26,6 +26,14 @@ Worker JID-ae4889cc009b554132fed3a0 INFO: done: 3.363 sec
 
 ```
 
+## Installation
+
+Make sure that you already have [sidekiq](http://sidekiq.org/) installed.  In your `Gemfile`:
+
+```ruby
+gem 'sidekiq_parameters_logging'
+```
+
 ## Notes
 
 `Sidekiq::Parameters::Logging` replaces the standard `Sidekiq::Middleware::Server::Logging`.
