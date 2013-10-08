@@ -6,8 +6,8 @@
 class Worker
   include Sidekiq::Worker
 
-  def perform(*args)
-    # do something 
+  def perform(*params)
+    # do something
   end
 end
 ```
@@ -21,7 +21,7 @@ Worker JID-ae4889cc009b554132fed3a0 INFO: done: 3.363 sec
 
 # with Sidekiq::Parameters::Logging
 Worker JID-ae4889cc009b554132fed3a0 INFO: start
-Worker JID-ae4889cc009b554132fed3a0 INFO: parameters: #{args.inspect}
+Worker JID-ae4889cc009b554132fed3a0 INFO: parameters: #{params.inspect}
 Worker JID-ae4889cc009b554132fed3a0 INFO: done: 3.363 sec
 
 ```
@@ -33,6 +33,27 @@ Make sure that you already have [sidekiq](http://sidekiq.org/) installed.  In yo
 ```ruby
 gem 'sidekiq_parameters_logging'
 ```
+
+## Log Filtering
+
+You can also filter the parameters that you want to get logged by the logger:
+
+```ruby
+class Worker
+  include Sidekiq::Worker
+  include Sidekiq::Parameters::Logger
+
+  logger_filter do |params|
+    params[-1] # only print out the last parameter
+  end
+
+  def perform(*params)
+    # do something
+  end
+end
+```
+
+`logger_filter` takes a block with an array of parameters that are being passed to your `perform` method.  Logger will then print out whatever that is returned from this block with `.inspect`.
 
 ## Notes
 
