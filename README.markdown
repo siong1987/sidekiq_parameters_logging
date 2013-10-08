@@ -12,7 +12,7 @@ class Worker
 end
 ```
 
-When you run sidekiq, you see this:
+When you run sidekiq, you will see this:
 
 ```
 # without Sidekiq::Parameters::Logging
@@ -36,7 +36,7 @@ gem 'sidekiq_parameters_logging'
 
 ## Log Filtering
 
-You can also filter the parameters that you want to get logged by the logger:
+You can also filter the parameters that you want to get printed out to the log:
 
 ```ruby
 class Worker
