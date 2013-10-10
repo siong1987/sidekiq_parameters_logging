@@ -57,7 +57,7 @@ end
 
 ## Notes
 
-`Sidekiq::Parameters::Logging` replaces the standard `Sidekiq::Middleware::Server::Logging`.
+`Sidekiq::Parameters::Logging` replaces the standard `Sidekiq::Middleware::Server::Logging` middleware.  I created this when I was helping a friend at [Envoy](https://signwithenvoy.com/).  They have a really nice visitor management system, do check them out. 
 
 ## License
 
