@@ -43,17 +43,17 @@ class Worker
   include Sidekiq::Worker
   include Sidekiq::Parameters::Logger
 
-  logger_filter do |params|
-    params[-1] # only print out the last parameter
+  logger_filter do |param1, param2|
+    params1 # only print out the last parameter
   end
 
-  def perform(*params)
+  def perform(param1, param2)
     # do something
   end
 end
 ```
 
-`logger_filter` takes a block with an array of parameters that are being passed to your `perform` method.  Logger will then print out whatever that is returned from this block with `.inspect`.
+`logger_filter` takes a block with parameters that are being passed to your `perform` method.  Logger will then print out whatever that is returned from this block with `.inspect`.
 
 ## Notes
 
