@@ -1,7 +1,7 @@
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "sidekiq_parameters_logging"
-  s.version     = "1.2.0"
+  s.version     = "1.3.0"
   s.authors     = ["Teng Siong Ong"]
   s.email       = ["siong1987@gmail.com"]
   s.homepage    = "https://github.com/siong1987/sidekiq_parameters_logging"

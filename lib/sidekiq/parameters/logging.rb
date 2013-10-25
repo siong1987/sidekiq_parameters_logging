@@ -11,7 +11,8 @@ module Sidekiq
             worker_class = worker.class
             if worker_class.respond_to?(:filter_block) && worker_class.filter_block
               logger.info do
-                "parameters: #{worker_class.filter_block.call(*(item['args'].clone)).inspect}"
+                # deep clone the arguments
+                "parameters: #{worker_class.filter_block.call(*(Marshal.load(Marshal.dump(item['args'])))).inspect}"
               end
             else
               logger.info { "parameters: #{item['args'].inspect}" }
