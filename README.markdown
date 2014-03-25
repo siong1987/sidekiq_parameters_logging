@@ -16,12 +16,10 @@ When you run sidekiq, you will see this:
 
 ```
 # without Sidekiq::Parameters::Logging
-Worker JID-ae4889cc009b554132fed3a0 INFO: start
 Worker JID-ae4889cc009b554132fed3a0 INFO: done: 3.363 sec
 
 # with Sidekiq::Parameters::Logging
-Worker JID-ae4889cc009b554132fed3a0 INFO: start
-Worker JID-ae4889cc009b554132fed3a0 INFO: parameters: #{params.inspect}
+Worker JID-ae4889cc009b554132fed3a0 INFO: start parameters: #{params.inspect}
 Worker JID-ae4889cc009b554132fed3a0 INFO: done: 3.363 sec
 
 ```

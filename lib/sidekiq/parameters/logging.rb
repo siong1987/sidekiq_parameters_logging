@@ -5,14 +5,13 @@ module Sidekiq
         Sidekiq::Logging.with_context("#{worker.class.to_s} JID-#{item['jid']}") do
           begin
             start = Time.now
-            logger.info { "start" }
 
             # see whether filter_block is set
             worker_class = worker.class
             if worker_class.respond_to?(:filter_block) && worker_class.filter_block
               logger.info do
                 # deep clone the arguments
-                "parameters: #{worker_class.filter_block.call(*(Marshal.load(Marshal.dump(item['args'])))).inspect}"
+                "start parameters: #{worker_class.filter_block.call(*(Marshal.load(Marshal.dump(item['args'])))).inspect}"
               end
             else
               logger.info { "parameters: #{item['args'].inspect}" }
